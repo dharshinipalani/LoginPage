@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>LoginForm</title>
+     <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+     <div class="container">
+         <form id="login-form" action="login.php" method="post">
+             <h2 style="color: rgb(213, 90, 238);" class="l">SignIn</h2>
+             <div id="error-message" class="error-message"></div>
+             <label for="username"></label>
+             <input type="text" id="username" name="username" placeholder="Username" required>
+             <label for="password"></label>
+             <input type="password" id="password" name="password" placeholder="Password" required >
+             <button type="submit">Login</button>
+         </form>
+     </div>
+ 
+     <script>
+         const form = document.getElementById("login-form");
+         const errorMessage = document.getElementById("error-message");
+ 
+         form.addEventListener("submit", function (e) {
+             e.preventDefault();
+             const username = document.getElementById("username").value;
+             const password = document.getElementById("password").value;
+ 
+             if (username === "yourUsername" && password === "yourPassword") {
+                 // Redirect to the authenticated page
+                 window.location.href = "dashboard.html";
+             } else {
+                 errorMessage.textContent = "Invalid username or password. Please try again.";
+             }
+         });
+     </script>
+ </body>
+ </html>
